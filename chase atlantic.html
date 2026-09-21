@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>i can't say no to you</title>
+
+    <link rel="stylesheet" href="paradise.css">
+</head>
+
+<body>
+
+    <div class="lyrics-screen">
+
+        <!-- Moving stars -->
+        <div class="stars"></div>
+
+        <!-- Lyrics -->
+        <div class="lyrics-box">
+            <h1 id="lyric">The silence is getting too cold</h1>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const lyrics = [
+            "The silence is getting too cold",
+            "We stopped fighting",
+            "'Cause deep down inside, we both know",
+            "Just for once, what do you want?",
+            "Baby, tell me the truth",
+            "Do you only love me 'cause you have to?",
+            "So come on, don't be afraid to break my heart",
+            "It only gets worse if you wait",
+            "Just for once, what do you want?",
+            "Baby, tell me the truth",
+            "Do you only love me 'cause you have to?"
+        ];
+
+        let index = 0;
+
+        const lyric = document.getElementById("lyric");
+
+        setInterval(() => {
+
+            // Fade out
+            lyric.classList.add("fade-out");
+
+            setTimeout(() => {
+
+                index++;
+
+                if (index >= lyrics.length) {
+                    index = 0;
+                }
+
+                lyric.textContent = lyrics[index];
+
+                // Fade in
+                lyric.classList.remove("fade-out");
+
+            }, 1000);
+
+        }, 3500);
+
+    </script>
+
+</body>
+</html>
