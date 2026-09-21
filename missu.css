@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffe6ef;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #d85c7a;
+    margin-bottom: 40px;
+}
+
+/* ENVELOPE */
+
+.envelope {
+    position: relative;
+
+    width: 280px;
+    height: 180px;
+
+    margin: auto;
+
+    background-color: #f5a6b8;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* LETTER */
+
+.letter {
+    position: absolute;
+
+    width: 220px;
+    height: 140px;
+
+    background-color: white;
+
+    left: 30px;
+    top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+
+    transition: 0.8s;
+
+    z-index: 1;
+}
+
+.letter h2 {
+    color: #d85c7a;
+    font-size: 22px;
+}
+
+/* FLAP */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #e889a0;
+
+    z-index: 3;
+
+    transform-origin: top;
+
+    transition: 0.8s;
+}
+
+/* FRONT OF ENVELOPE */
+
+.envelope::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 100px solid #ef96ab;
+
+    z-index: 2;
+}
+
+/* WHEN OPENED */
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-110px);
+
+    opacity: 1;
+
+    z-index: 4;
+}
